@@ -29,6 +29,8 @@ ENVOY_EXTENSIONS = {
     "envoy.compression.gzip.decompressor":              "//source/extensions/compression/gzip/decompressor:config",
     "envoy.compression.brotli.compressor":              "//source/extensions/compression/brotli/compressor:config",
     "envoy.compression.brotli.decompressor":            "//source/extensions/compression/brotli/decompressor:config",
+    "envoy.compression.zstd.compressor":                "//source/extensions/compression/zstd/compressor:config",
+    "envoy.compression.zstd.decompressor":              "//source/extensions/compression/zstd/decompressor:config",
 
     #
     # gRPC Credentials Plugins
@@ -324,6 +326,13 @@ ENVOY_EXTENSIONS = {
 }
 
 ENVOY_CONTRIB_EXTENSIONS = {
+
+    #
+    # Compression
+    #
+
+    "envoy.compression.qatzip.compressor":                      "//contrib/qat/compression/qatzip/compressor/source:config",
+
     #
     # HTTP filters
     #
@@ -355,6 +364,14 @@ ENVOY_CONTRIB_EXTENSIONS = {
     #
 
     "envoy.tls.key_providers.cryptomb":                         "//contrib/cryptomb/private_key_providers/source:config",
+    "envoy.tls.key_providers.qat":                              "//contrib/qat/private_key_providers/source:config",
+    "envoy.tls.key_providers.sgx":                              "//contrib/sgx/private_key_providers/source:config",
+
+    #
+    # TLS peer certification validators
+    #
+
+    "envoy.tls.cert_validator.extension":                       "//contrib/transport_sockets/tls/cert_validator/extension/source:config",
 
     #
     # Socket interface extensions
@@ -370,10 +387,14 @@ ISTIO_DISABLED_EXTENSIONS = [
 ]
 
 ISTIO_ENABLED_CONTRIB_EXTENSIONS = [
+    "envoy.compression.qatzip.compressor",
     "envoy.filters.network.mysql_proxy",
     "envoy.filters.network.sip_proxy",
     "envoy.filters.sip.router",
+    "envoy.tls.cert_validator.extension",
     "envoy.tls.key_providers.cryptomb",
+    "envoy.tls.key_providers.qat",
+    "envoy.tls.key_providers.sgx",
 ]
 
 EXTENSIONS = dict([(k,v) for k,v in ENVOY_EXTENSIONS.items() if not k in ISTIO_DISABLED_EXTENSIONS] +
