@@ -40,7 +40,7 @@ ENVOY_SHA = "a4a3f39849bf15aa85bff7d647f0a0735eed60cd"
 
 ENVOY_SHA256 = "4b5df8ae77113231023750088e815f0fd0ccf40c9488b69ec0bf5e84dd70a13f"
 
-ENVOY_ORG = "envoyproxy"
+ENVOY_ORG = "intel"
 
 ENVOY_REPO = "envoy"
 
