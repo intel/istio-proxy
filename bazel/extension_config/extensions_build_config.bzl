@@ -29,6 +29,7 @@ ENVOY_EXTENSIONS = {
     "envoy.compression.gzip.decompressor":              "//source/extensions/compression/gzip/decompressor:config",
     "envoy.compression.brotli.compressor":              "//source/extensions/compression/brotli/compressor:config",
     "envoy.compression.brotli.decompressor":            "//source/extensions/compression/brotli/decompressor:config",
+    "envoy.compression.qatzip.compressor":              "//source/extensions/compression/qatzip/compressor:config",
 
     #
     # gRPC Credentials Plugins
@@ -373,6 +374,7 @@ ISTIO_DISABLED_EXTENSIONS = [
 ]
 
 ISTIO_ENABLED_CONTRIB_EXTENSIONS = [
+    "envoy.compression.qatzip.compressor",
     "envoy.filters.network.mysql_proxy",
     "envoy.filters.network.sip_proxy",
     "envoy.filters.sip.router",
