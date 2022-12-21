@@ -361,6 +361,12 @@ ENVOY_CONTRIB_EXTENSIONS = {
     "envoy.tls.key_providers.qat":                              "//contrib/qat/private_key_providers/source:config",
 
     #
+    # TLS peer certification validators
+    #
+
+    "envoy.tls.cert_validator.extension":                       "//contrib/transport_sockets/tls/cert_validator/extension/source:config",
+
+    #
     # Socket interface extensions
     #
 
@@ -378,6 +384,7 @@ ISTIO_ENABLED_CONTRIB_EXTENSIONS = [
     "envoy.filters.network.mysql_proxy",
     "envoy.filters.network.sip_proxy",
     "envoy.filters.sip.router",
+    "envoy.tls.cert_validator.extension",
     "envoy.tls.key_providers.cryptomb",
     "envoy.tls.key_providers.qat",
 ]
