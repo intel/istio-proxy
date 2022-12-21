@@ -29,6 +29,7 @@ ENVOY_EXTENSIONS = {
     "envoy.compression.gzip.decompressor":              "//source/extensions/compression/gzip/decompressor:config",
     "envoy.compression.brotli.compressor":              "//source/extensions/compression/brotli/compressor:config",
     "envoy.compression.brotli.decompressor":            "//source/extensions/compression/brotli/decompressor:config",
+    "envoy.compression.qatzip.compressor":              "//source/extensions/compression/qatzip/compressor:config",
 
     #
     # gRPC Credentials Plugins
@@ -362,6 +363,12 @@ ENVOY_CONTRIB_EXTENSIONS = {
     "envoy.tls.key_providers.sgx":                              "//contrib/sgx/private_key_providers/source:config",
 
     #
+    # TLS peer certification validators
+    #
+
+    "envoy.tls.cert_validator.extension":                       "//contrib/transport_sockets/tls/cert_validator/extension/source:config",
+
+    #
     # Socket interface extensions
     #
 
@@ -375,9 +382,11 @@ ISTIO_DISABLED_EXTENSIONS = [
 ]
 
 ISTIO_ENABLED_CONTRIB_EXTENSIONS = [
+    "envoy.compression.qatzip.compressor",
     "envoy.filters.network.mysql_proxy",
     "envoy.filters.network.sip_proxy",
     "envoy.filters.sip.router",
+    "envoy.tls.cert_validator.extension",
     "envoy.tls.key_providers.cryptomb",
     "envoy.tls.key_providers.qat",
     "envoy.tls.key_providers.sgx",
