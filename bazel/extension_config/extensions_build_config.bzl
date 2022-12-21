@@ -29,7 +29,6 @@ ENVOY_EXTENSIONS = {
     "envoy.compression.gzip.decompressor":              "//source/extensions/compression/gzip/decompressor:config",
     "envoy.compression.brotli.compressor":              "//source/extensions/compression/brotli/compressor:config",
     "envoy.compression.brotli.decompressor":            "//source/extensions/compression/brotli/decompressor:config",
-    "envoy.compression.qatzip.compressor":              "//contrib/qat/compression/qatzip/compressor/source:config",
 
     #
     # gRPC Credentials Plugins
@@ -128,6 +127,7 @@ ENVOY_EXTENSIONS = {
     # Network filters
     #
 
+    "envoy.filters.network.bumping":                              "//source/extensions/filters/network/bumping:config",
     "envoy.filters.network.connection_limit":                     "//source/extensions/filters/network/connection_limit:config",
     "envoy.filters.network.direct_response":                      "//source/extensions/filters/network/direct_response:config",
     "envoy.filters.network.dubbo_proxy":                          "//source/extensions/filters/network/dubbo_proxy:config",
@@ -271,6 +271,12 @@ ENVOY_EXTENSIONS = {
     "envoy.tls.cert_validator.spiffe":                  "//source/extensions/transport_sockets/tls/cert_validator/spiffe:config",
 
     #
+    # Certificate providers
+    #
+
+    "envoy.certificate_providers.local_certificate":    "//source/extensions/certificate_providers/local_certificate:config",
+
+    #
     # HTTP header formatters
     #
 
@@ -327,6 +333,13 @@ ENVOY_EXTENSIONS = {
 }
 
 ENVOY_CONTRIB_EXTENSIONS = {
+
+    #
+    # Compression
+    #
+
+    "envoy.compression.qatzip.compressor":                      "//contrib/qat/compression/qatzip/compressor/source:config",
+
     #
     # HTTP filters
     #
@@ -362,12 +375,6 @@ ENVOY_CONTRIB_EXTENSIONS = {
     "envoy.tls.key_providers.sgx":                              "//contrib/sgx/private_key_providers/source:config",
 
     #
-    # TLS peer certification validators
-    #
-
-    "envoy.tls.cert_validator.extension":                       "//contrib/transport_sockets/tls/cert_validator/extension/source:config",
-
-    #
     # Socket interface extensions
     #
 
@@ -385,7 +392,6 @@ ISTIO_ENABLED_CONTRIB_EXTENSIONS = [
     "envoy.filters.network.mysql_proxy",
     "envoy.filters.network.sip_proxy",
     "envoy.filters.sip.router",
-    "envoy.tls.cert_validator.extension",
     "envoy.tls.key_providers.cryptomb",
     "envoy.tls.key_providers.qat",
     "envoy.tls.key_providers.sgx",
