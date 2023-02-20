@@ -35,7 +35,6 @@ ENVOY_EXTENSIONS = {
     "envoy.compression.gzip.decompressor":              "//source/extensions/compression/gzip/decompressor:config",
     "envoy.compression.brotli.compressor":              "//source/extensions/compression/brotli/compressor:config",
     "envoy.compression.brotli.decompressor":            "//source/extensions/compression/brotli/decompressor:config",
-    "envoy.compression.qatzip.compressor":              "//source/extensions/compression/qatzip/compressor:config",
 
     #
     # gRPC Credentials Plugins
@@ -358,6 +357,12 @@ ENVOY_EXTENSIONS = {
 }
 
 ENVOY_CONTRIB_EXTENSIONS = {
+    #
+    # Compression
+    #
+
+    "envoy.compression.qatzip.compressor":                      "//contrib/qat/compression/qatzip/compressor/source:config",
+
     #
     # HTTP filters
     #
