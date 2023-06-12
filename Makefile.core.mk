@@ -153,9 +153,9 @@ endif
 exportcache: BAZEL_BIN_PATH ?= $(shell bazel info $(BAZEL_BUILD_ARGS) $(BAZEL_CONFIG_CURRENT) bazel-bin)
 exportcache:
 	@mkdir -p /work/out/$(TARGET_OS)_$(TARGET_ARCH)
-	@cp -a $(BAZEL_BIN_PATH)/envoy /work/out/$(TARGET_OS)_$(TARGET_ARCH)
+	@cp -a /work/bazel-bin/envoy /work/out/$(TARGET_OS)_$(TARGET_ARCH)
 	@chmod +w /work/out/$(TARGET_OS)_$(TARGET_ARCH)/envoy
-	@cp -a $(BAZEL_BIN_PATH)/**/*wasm /work/out/$(TARGET_OS)_$(TARGET_ARCH) &> /dev/null || true
+	@cp -a /work/bazel-bin/**/*wasm /work/out/$(TARGET_OS)_$(TARGET_ARCH) &> /dev/null || true
 
 .PHONY: build clean test check extensions-proto
 
