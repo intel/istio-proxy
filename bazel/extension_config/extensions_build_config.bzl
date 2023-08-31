@@ -408,6 +408,12 @@ ENVOY_EXTENSIONS = {
 
 ENVOY_CONTRIB_EXTENSIONS = {
     #
+    # Compression
+    #
+
+    "envoy.compression.qatzip.compressor":                      "//contrib/qat/compression/qatzip/compressor/source:config",
+
+    #
     # HTTP filters
     #
 
@@ -463,6 +469,7 @@ ISTIO_DISABLED_EXTENSIONS = [
 ]
 
 ISTIO_ENABLED_CONTRIB_EXTENSIONS = [
+    "envoy.compression.qatzip.compressor",
     "envoy.filters.http.golang",
     "envoy.filters.network.golang",
     "envoy.filters.network.mysql_proxy",
